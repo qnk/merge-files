@@ -35,26 +35,27 @@ app.get('/api/merge/', function(req, res, next) {
     res.status(422).send({
       message: "Missing 'file' or 'extend' params on querystring"
     });
+  } else {
+    // TODO: Apply clean code good practices
+    const firstFile = File.attachExtension(file);
+    const secondFile = File.attachExtension(extend);
+    
+    // TODO: Check for file existance after trying to open it directly
+  
+    const firstFileContent = File.content(firstFile);
+    const secondFileContent = File.content(secondFile);
+    
+    const firstFileLines = File.splitByCariage(firstFileContent);
+    const secondFileLines = File.splitByCariage(secondFileContent);
+    
+    const resultAsArr = Content.removeDuplicates(firstFileLines, secondFileLines);
+    const finalResult = Content.convertToString(resultAsArr);
+    
+    // TODO: Remove hardcoded param
+    File.append('fichero2.md', finalResult);
+    
+    res.send('done');    
   }
-  
-  const firstFile = File.attachExtension(file);
-  const secondFile = File.attachExtension(extend);
-  
-  // TODO: Check for file existance after trying to open it directly
-
-  const firstFileContent = File.content(firstFile);
-  const secondFileContent = File.content(secondFile);
-  
-  const firstFileLines = File.splitByCariage(firstFileContent);
-  const secondFileLines = File.splitByCariage(secondFileContent);
-  
-  const resultAsArr = Content.removeDuplicates(firstFileLines, secondFileLines);
-  const finalResult = Content.convertToString(resultAsArr);
-  
-  // TODO: Remove hardcoded param
-  File.append('fichero2.md', finalResult);
-  
-  res.send('done');
 });
 
 app.use((err, req, res, next) => {
