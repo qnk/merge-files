@@ -40,7 +40,14 @@ let content = {
     },
     
     convertToString: (arr) => {
-        return Data.addCarriage(arr);
+        let str = '';
+        let arrWithCarrige = Data.addCarriage(arr);
+        
+        for(let i in arrWithCarrige) {
+            str += arrWithCarrige[i];
+        }
+        
+        return str;
     },
 };
 
