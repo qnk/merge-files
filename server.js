@@ -48,7 +48,7 @@ app.get('/api/merge/', function(req, res, next) {
     const firstFileLines = File.splitByCariage(firstFileContent);
     const secondFileLines = File.splitByCariage(secondFileContent);
     
-    const resultAsArr = Content.removeDuplicates(firstFileLines, secondFileLines);
+    const resultAsArr = Content.buildContent(firstFileLines, secondFileLines);
     const finalResult = Content.convertToString(resultAsArr);
     
     // TODO: Remove hardcoded param

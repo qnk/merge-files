@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Data = require('../modules/data')
+const Data = require('../modules/data');
 
 describe('Data', function() {
   describe('#addCarriage()', function() {
