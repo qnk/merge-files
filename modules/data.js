@@ -2,6 +2,7 @@ const _ = require('underscore');
 
 let data = {
     addCarriage: (arr) => {
+        // TODO: Control if OS requieres to contact "\n or \r\n"
         let aux = [];
         
         for(let i in arr) {

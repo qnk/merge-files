@@ -28,6 +28,8 @@ const Content = modules.content;
 // https://github.com/qnk/altran-project
 
 app.get('/api/merge/', function(req, res, next) {
+  console.log('Access to endpoint done');
+  
   if(! req.query) {
     throw Error("Missing query");
   }
