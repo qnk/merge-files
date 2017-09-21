@@ -18,5 +18,9 @@ describe('Content', function() {
     it('all content is different, return them in a single array', function() {
       assert.deepEqual(Content.buildContent(['Hello','1'], ['Hola','2']), ['Hello','1','Hola','2']);
     });
+    
+    it.only('do not crash with empty values. Should be true', function() {
+      assert.deepEqual(Content.buildContent(['Hola','1'], ['Hola','','','','2']), ['Hola','1','','','','2']);
+    });
   });
 });
