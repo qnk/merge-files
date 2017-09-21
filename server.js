@@ -54,7 +54,7 @@ app.get('/api/merge/', function(req, res, next) {
     // TODO: Remove hardcoded param
     File.append('fichero2.md', finalResult);
     
-    res.send('done');    
+    res.status(200).send('done');
   }
 });
 
