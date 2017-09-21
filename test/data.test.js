@@ -13,11 +13,10 @@ describe('Data', function() {
   });
   
   describe('#arrsAreEqual()', function() {
-    // TODO: Review this test
     // TODO: Create test and correct bug if a file has several carriage returns
     // in the middle of its content
-    xit('should be true', function() {
-      assert.equal(Data.arrsAreEqual(['Ho','1'], ['Ho','1']));
+    it('should be true', function() {
+      assert.ok(Data.arrsAreEqual(['Ho','1'], ['Ho','1']));
     });  
   });
 });
