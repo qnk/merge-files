@@ -2,10 +2,6 @@ const _ = require('underscore');
 const Data = require('./data');
 
 // TODO: Apply functional programming to improve performance
-// TODO: Call inside these functions to another module to treat data operations
-// An example can be found here:
-// https://github.com/qnk/altran-project/blob/development/services/DataService.js
-
 function commonValues(arr1, arr2) {
     return _.intersection(arr1, arr2);
 }
