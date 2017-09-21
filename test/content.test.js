@@ -19,7 +19,7 @@ describe('Content', function() {
       assert.deepEqual(Content.buildContent(['Hello','1'], ['Hola','2']), ['Hello','1','Hola','2']);
     });
     
-    it.only('do not crash with empty values. Should be true', function() {
+    it('do not crash with empty values. Should be true', function() {
       assert.deepEqual(Content.buildContent(['Hola','1'], ['Hola','','','','2']), ['Hola','1','','','','2']);
     });
   });

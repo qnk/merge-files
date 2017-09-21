@@ -1,11 +1,22 @@
 const assert = require('assert');
 const File = require('../modules/file');
 
+const express = require('express');
+const app = express();
+
 describe('File ops', function() {
   describe('#attachExtension()', function() {
-   // TODO: Update this test in order to manage extension based on env. var.
+    // TODO: review tests based on env. var.
     xit('should attach .md extension to file name', function() {
+      app.set('EXTENSION', process.env.EXTENSION || 'md');
+      
       assert.equal(File.attachExtension('fichero'), 'fichero.md');
+    });
+    
+    xit('should attach .txt extension to file name', function() {
+      app.set('EXTENSION', 'txt');
+
+      assert.equal(File.attachExtension('fichero'), 'fichero.txt');
     });
   });
   
