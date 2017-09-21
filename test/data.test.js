@@ -11,4 +11,13 @@ describe('Data', function() {
       assert.deepEqual(Data.addCarriage([]), []);
     });
   });
+  
+  describe('#arrsAreEqual()', function() {
+    // TODO: Review this test
+    // TODO: Create test and correct bug if a file has several carriage returns
+    // in the middle of its content
+    xit('should be true', function() {
+      assert.equal(Data.arrsAreEqual(['Ho','1'], ['Ho','1']));
+    });  
+  });
 });

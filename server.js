@@ -3,23 +3,19 @@
 
 const express = require('express');
 const app = express();
-const Q = require('q')
 const modules = require('./modules');
-
-// TODO: Apply object deconstruction (ES6)
-// TODO: Install and run eslint to standarize code and force best practices
 const File = modules.file;
 const Content = modules.content;
 
 // TODO: Apply several security packages as helmet.
-// It is possible to find out how I've done before here:
+// It is possible to find out how I've done before here (app.js):
 // https://github.com/qnk/altran-project
 
 // TODO: Move route to express' Router
 // It is possible to find out how I've done before here:
 // https://github.com/qnk/altran-project
 
-// TODO: Avoid error control with underscore with TypeScript
+// TODO: Avoid error control with underscore using TypeScript
 // Since javascript does not support data type params check, I mainly use _.has()
 // functions to ensure the right data type. Avoid this using TypeScript in future
 // It is possible to find out how I've done before here:
@@ -36,7 +32,7 @@ app.get('/api/merge/', function(req, res, next) {
       message: "Missing 'file' or 'extend' params on querystring"
     });
   } else {
-    // TODO: Apply clean code good practices
+    // TODO: Apply clean code good practices removing prev. else
     const firstFile = File.attachExtension(file);
     const secondFile = File.attachExtension(extend);
     

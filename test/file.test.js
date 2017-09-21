@@ -3,7 +3,7 @@ const File = require('../modules/file');
 
 describe('File ops', function() {
   describe('#attachExtension()', function() {
-   // Update this test in order to manage extension based on env. var.
+   // TODO: Update this test in order to manage extension based on env. var.
     xit('should attach .md extension to file name', function() {
       assert.equal(File.attachExtension('fichero'), 'fichero.md');
     });

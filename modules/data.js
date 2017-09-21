@@ -17,7 +17,7 @@ let data = {
     arrsAreEqual: (arr1, arr2) => {
         let equals = true;
         
-        if(arr1.length ===arr2.length) {
+        if(arr1.length === arr2.length) {
             for(let i in arr1) {
                 if(arr1[i] !== arr2[i]) {
                     equals = false;
