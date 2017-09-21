@@ -10,7 +10,6 @@ const modules = require('./modules');
 // TODO: Install and run eslint to standarize code and force best practices
 const Querystring = modules.queryString;
 const File = modules.file;
-const Path = modules.path;
 const Content = modules.content;
 
 // TODO: Apply several security packages as helmet.
@@ -41,8 +40,8 @@ app.get('/api/merge/', function(req, res, next) {
     throw Error("Missing 'file' or 'extend' params on querystring");
   }
 
-  const firstFile = Path.attachExtension(file);
-  const secondFile = Path.attachExtension(extend);
+  const firstFile = File.attachExtension(file);
+  const secondFile = File.attachExtension(extend);
   
   // TODO: Check for file existance after trying to open it directly
 

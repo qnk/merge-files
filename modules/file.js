@@ -2,6 +2,7 @@ const fs = require('fs');
 const Promise = require('bluebird');
 const myError = require('../services/errors');
 const Q = require('q');
+const EXTENSION = process.env.EXTENSION || 'md';
 
 let file = {
     // TODO: use ES6's spread operator (...) to verify 1..N files, not just 2
@@ -45,6 +46,10 @@ let file = {
         fs.appendFileSync(path, content);
       
         return;
+    },
+
+    attachExtension: (file) => {
+       return [ `${file}.${EXTENSION}`];
     },
 };
 
