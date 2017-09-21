@@ -11,13 +11,7 @@ function commonValues(arr1, arr2) {
 }
 
 function cleanCommon(common, arr) {
-    let content;
-    
-    for(let i in common) { 
-        content = _.without(arr, common[i]); 
-    } 
-   
-    return content; 
+    return _.difference(arr, common);
 }
 
 function pushContent(arr, toPush) {
@@ -28,9 +22,7 @@ function pushContent(arr, toPush) {
     return arr;
 }
     
-// TODO: Improve for 1..N with spread operator
 let content = {
-    // TODO: Improve name, not just removes duplicates
     buildContent: (arr1, arr2) => {
         if(Data.arrsAreEqual(arr1, arr2)) {
             return arr1;
