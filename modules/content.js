@@ -11,13 +11,7 @@ function commonValues(arr1, arr2) {
 }
 
 function cleanCommon(common, arr) {
-    let content;
-    
-    for(let i in common) {
-        content = _.without(arr, common[i]);
-    }
-
-    return content;
+    return _.uniq(arr, common);
 }
 
 function pushContent(arr, toPush) {
@@ -31,12 +25,21 @@ function pushContent(arr, toPush) {
 // TODO: Improve for 1..N with spread operator
 let content = {
     removeDuplicates: (arr1, arr2) => {
+        if(Data.arrsAreEqual(arr1, arr2)) {
+            return arr1;
+        }
+        
         let common = commonValues(arr1, arr2);
-        
+
         //Remove common values from file2
-        let arr2cleaned = cleanCommon(common, arr2);
+        let arrCleaned = cleanCommon(common, arr2);
         
-        return pushContent(arr1, arr2cleaned);
+        // Free of duplicates
+        if(arrCleaned.length === 0) {
+            return arr1;
+        }
+
+        return pushContent(arr1, arrCleaned);
     },
     
     convertToString: (arr) => {
