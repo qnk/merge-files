@@ -40,7 +40,7 @@ app.get('/api/merge/', function(req, res, next) {
     const firstFile = File.attachExtension(file);
     const secondFile = File.attachExtension(extend);
     
-    // TODO: Check for file existance after trying to open it directly
+    // TODO: Check for file existance before trying to open it directly
   
     const firstFileContent = File.content(firstFile);
     const secondFileContent = File.content(secondFile);
