@@ -14,5 +14,9 @@ describe('File ops', function() {
     it('should split string within "\\n" into and array of strings', function() {
       assert.deepEqual(File.splitByCariage('Hola\nHi\nBye'), ['Hola','Hi','Bye']);
     });
+    
+    it('should leave string inmutable into an array if there\'s not "\\r\\n" or "\\n"', function() {
+      assert.deepEqual(File.splitByCariage('Hola Hi Bye'), ['Hola Hi Bye']);
+    });
   });
 });
