@@ -8,7 +8,6 @@ const modules = require('./modules');
 
 // TODO: Apply object deconstruction (ES6)
 // TODO: Install and run eslint to standarize code and force best practices
-const Querystring = modules.queryString;
 const File = modules.file;
 const Content = modules.content;
 

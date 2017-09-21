@@ -2,6 +2,13 @@ const assert = require('assert');
 const File = require('../modules/file');
 
 describe('File ops', function() {
+  describe('#attachExtension()', function() {
+   // Update this test in order to manage extension based on env. var.
+    xit('should attach .md extension to file name', function() {
+      assert.equal(File.attachExtension('fichero'), 'fichero.md');
+    });
+  });
+  
   describe('#splitByCariage()', function() {
     it('should return "" is string param is empty', function() {
       assert.equal(File.splitByCariage(''), '');

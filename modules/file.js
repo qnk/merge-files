@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Promise = require('bluebird');
-const myError = require('../services/errors');
 const Q = require('q');
 const EXTENSION = process.env.EXTENSION || 'md';
 
