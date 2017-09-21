@@ -32,9 +32,11 @@ app.get('/api/merge/', function(req, res, next) {
   const extend = req.query.extend || '';
 
   if(! file === '' || extend === '') {
-    throw Error("Missing 'file' or 'extend' params on querystring");
+    res.status(422).send({
+      message: "Missing 'file' or 'extend' params on querystring"
+    });
   }
-
+  
   const firstFile = File.attachExtension(file);
   const secondFile = File.attachExtension(extend);
   
