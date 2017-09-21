@@ -2,6 +2,7 @@
 // https://merge-data-jaqnk.c9users.io/api/merge?file=fichero1&extend=fichero2
 
 const express = require('express');
+const _ = require('underscore');
 const app = express();
 const modules = require('./modules');
 const File = modules.file;
@@ -21,7 +22,7 @@ const Content = modules.content;
 // It is possible to find out how I've done before here:
 // https://github.com/qnk/altran-project
 
-app.get('/api/merge/', function(req, res, next) {
+app.get('/api/merge/', (req, res, next) => {
   console.log('Access to endpoint done');
   
   const file = req.query.file || '';
@@ -39,7 +40,14 @@ app.get('/api/merge/', function(req, res, next) {
     // TODO: Check for file existance before trying to open it directly
   
     const firstFileContent = File.content(firstFile);
+    if(_.isError(firstFileContent)) {
+      return next(firstFileContent);
+    }
+
     const secondFileContent = File.content(secondFile);
+    if(_.isError(secondFileContent)) {
+      next(secondFileContent);
+    }
     
     const firstFileLines = File.splitByCariage(firstFileContent);
     const secondFileLines = File.splitByCariage(secondFileContent);
