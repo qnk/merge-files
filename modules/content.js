@@ -15,7 +15,7 @@ function cleanCommon(common, arr) {
     
     for(let i in common) { 
         content = _.without(arr, common[i]); 
-   } 
+    } 
    
     return content; 
 }

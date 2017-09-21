@@ -10,5 +10,9 @@ describe('Content', function() {
       it('both arrays are different, should build content', function() {
         assert.deepEqual(Content.buildContent(['Hola','1'], ['Hola','2']), ['Hola','1','2']);
       });
+      
+      it('arrays are different but longer, should build content', function() {
+        assert.deepEqual(Content.buildContent(['Ho','1','Al'], ['Ho','Al,2']), ['Ho','1','Al','2']);
+      });
   });
 });
